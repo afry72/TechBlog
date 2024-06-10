@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
 
   try{
       const dbPostData = await Post.findAll({
@@ -68,7 +68,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 })
 
-router.get('/posts/:id', withAuth, async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
   try{
       const dbCommentData = await Comment.findAll({
           where: {
@@ -168,13 +168,9 @@ router.get('/editpost/:id', withAuth, async (req, res) => {
         res.status(500).json(error);
     }
 });
+//all CS routes
 
-
-// all the routes for the states grouped by state 
-
-//all nh routes
-
-router.get('/compsci', withAuth, async (req, res) => {
+router.get('/compsci', async (req, res) => {
 
     try{
         const dbPostData = await Post.findAll({
@@ -202,8 +198,8 @@ router.get('/compsci', withAuth, async (req, res) => {
     }
 })
 
-// all vt routes
-router.get('/softwaredev', withAuth, async (req, res) => {
+// all SD routes
+router.get('/softwaredev', async (req, res) => {
 
     try{
         const dbPostData = await Post.findAll({
@@ -231,8 +227,8 @@ router.get('/softwaredev', withAuth, async (req, res) => {
     }
 })
 
-//all ma routes
-router.get('/webdev', withAuth, async (req, res) => {
+//all WD routes
+router.get('/webdev', async (req, res) => {
 
     try{
         const dbPostData = await Post.findAll({

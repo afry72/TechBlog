@@ -36,7 +36,7 @@ const postData = [
         content: "Keep yourself informed about evolving web standards and best practices. Regularly explore new technologies, frameworks, and tools to stay ahead in the dynamic field of web development and deliver modern, efficient, and secure web experiences.",
         user_id: 6,
         post_state: "wd"
-    }
+    } 
 ];
 
 const SeedPost = () => Post.bulkCreate(postData);
